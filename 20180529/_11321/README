@@ -1,0 +1,11 @@
+to learn how to use sort()'s CMP
+
+bool CMP(int a, int b)
+{
+  return a > b;
+}
+it will be a precede array.(like 0 1 2 3 4 5 6)
+
+
+if CMP is true, a will not change with b
+if CMP is false, a will change with b.
