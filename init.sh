@@ -1,0 +1,3 @@
+cd ~/myCode/CPE/$1
+touch input1 input2 output1 output2 demo1.cpp example.cpp answer1 answer2
+
