@@ -17,7 +17,7 @@ int main()
 
 	while (scanf("%d", &input) != EOF && input != 0) {
 		ans_count = 0;
-		for (int i = 2; i < input / 2; ++i) {
+		for (int i = 2; i <= input / 2; ++i) {
 			if (prime[i] == 0 && prime[input - i] == 0) {
 				++ans_count;
 			}

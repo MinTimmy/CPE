@@ -21,7 +21,7 @@ int main()
                 if(isPrime){
                     for(int k = 2; k < n - i; k++){
                         for(int l = 2; l <= k; l++){
-                            if(k % l == 0){
+                            if(k % l != 0){
                                 isAnswer = true;
                             }
                         }
