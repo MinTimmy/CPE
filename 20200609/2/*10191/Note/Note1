@@ -1,0 +1,8 @@
+練習qsort用法
+https://www.cplusplus.com/reference/cstdlib/qsort/
+
+vector 的 data用法
+http://www.cplusplus.com/reference/vector/vector/data/
+
+test3.cpp 是vector 和qsort的用法
+test4.cpp 是vector的 data()的用法
