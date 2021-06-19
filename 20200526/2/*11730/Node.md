@@ -1,6 +1,6 @@
-# Node
+# UVA 11730
 
-## 解法
+## Solution
 每做一次轉換都要重算一次A的質因數，所以為了節省時間先建質數表是必須的。
 
 然後我們就可以從S這個數字開始建出一個搜尋樹，利用BFS的方式找出答案。
@@ -40,7 +40,7 @@ Breadth-first search (BFS) is an algorithm for traversing or searching tree or g
 
 It uses the opposite strategy of depth-first search, which instead explores the node branch as far as possible before being forced to backtrack and expand other nodes.
 
-## Pseudocode
+#### Pseudocode
 ```
 procedure BFS(G, root) is
     let Q be a queue
