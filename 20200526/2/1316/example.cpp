@@ -18,12 +18,12 @@ int main(){
     int n, ans;
     int i, j, k;
     int s[10005];
-    item t[10005];
+    item t[10005]; // 輸入的數據
     while (scanf("%d", &n) == 1){
         for(i = 0; i < n; i++){
             scanf("%d%d", &t[i].price, &t[i].day);
         }
-        sort(t, t+n, cmp);
+        sort(t, t+n, cmp); // 利用 price 去 sort，由小到大
         memset(s, -1, sizeof(s));
         ans = 0;
         for(i = 0; i < n; i++){
