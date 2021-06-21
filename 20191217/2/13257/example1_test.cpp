@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int re[100002];
+int re[100002]; // 判斷從第 i 項之後出現幾種不同的字母
 
 
 // 以 NUEVE(13 20 4 21 4) 當作測資
@@ -71,7 +71,24 @@ int main() {
         // c[21] = 0, c[4] = 1
         // re[2] = 2, re[3] = 2, re[4] = 1
 
+        for(int i = 0; i < 26; i++){
+            int j = 0;
+            for(vector<int>::iterator it = a[i].begin(); it != a[i].end(); it++){
+                cout << "a[" << char(i + 'A') << i << "][" << j++ << "] = " << *it << '\t';
+            }
+            if(a[i].size() != 0)
+                cout << '\n';
+        }
 
+        for(int i = 0; i < 26; i++){
+            if(c[i] != 0)
+                cout << "c[" << char(i + 'A') << i << "] = " << c[i] << '\n';
+        }
+        for(int i = 0; i < 100002; i++){
+            if(re[i] != 0){
+                cout << "re[" << i << "] = " << re[i] << '\n';
+            }
+        }
         seq = 0; // subsequence 的數量，也是最後的答案
 
         for (int i = 0; i<26; i++) {
