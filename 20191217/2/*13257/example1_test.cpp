@@ -7,6 +7,9 @@ int re[100002]; // 判斷從第 i 項之後出現幾種不同的字母
 
 // 以 NUEVE(13 20 4 21 4) 當作測資
 int main() {
+    freopen("input2","r",stdin);
+    freopen("output1","w",stdout);
+
     int cas; // 測資數量
     int c[26];
     int seq;
@@ -89,26 +92,37 @@ int main() {
                 cout << "re[" << i << "] = " << re[i] << '\n';
             }
         }
+
+
         seq = 0; // subsequence 的數量，也是最後的答案
 
         for (int i = 0; i<26; i++) {
             for (int j = 0; j<26; j++) {
                 // 如果 i 等於 j 且 a 的第 i 項不是空的
-                if (i == j && a[i].size()>1) {
-                    seq+= re[a[j][1]+1];
+                // 先處理重複字母 E 
+                if (i == j && a[i].size() > 1) {
+                    // 尋找第二個重複字母後面還有幾個不同字母
+                    seq += re[ a[j][1] + 1 ];
                 }
+
+                // (i 不等於 j) 且 (a[i] 和 a[j] 都沒有空) 且 (a[j] 的倒數第 2 項大於 a[i] 的第 0 項)
+                // 在處理非重複字母 N U V O，每次判斷時， i 代表 subsequence 的第 1 個字母， j 代表 subsequence 的第 2 個字母
+                // subsequence 的第 3 個字母就是 subsequence 的第 2 個字母在原測資後面有多少個不同字母
+                // 例如 i = E4 j = v21 則 v 後面還有 1 個不同的字母
+                // 注意，如果有重複的字母，一律都找最左邊的字母
                 else if(i != j && !a[i].empty() && !a[j].empty() && a[j][ a[j].size()-1 ] > a[i][0]) {
 
                     int k = 0, l = a[j].size(), temp;
 
-                    while (k!=l) {
-                        temp = k+(l-k)/2;
-                        if (a[j][temp]>a[i][0])
+                    while (k != l) {
+                        temp = k + (l - k) / 2;
+                        if (a[j][temp] > a[i][0])
                             l = temp;
                         else
-                            k = temp+1;
+                            k = temp + 1;
                     }
-                    seq+= re[a[j][k]+1];
+                    cout << "----------------------------------\ni = " << char(i + 'A') << i << " j = " << char(j + 'A') << j << " k = " << k  << " seq += " << re[ a[j][k] + 1 ] << '\n';
+                    seq += re[ a[j][k] + 1 ];
                 }
             }
         }

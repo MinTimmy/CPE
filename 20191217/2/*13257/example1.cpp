@@ -7,6 +7,8 @@ int re[100002];
 
 // 以 NUEVE(13 20 4 21 4) 當作測資
 int main() {
+    
+
     int cas; // 測資數量
     int c[26];
     int seq;
